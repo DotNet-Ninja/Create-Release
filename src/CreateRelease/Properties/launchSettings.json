@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CreateRelease": {
+      "commandName": "Project",
+      "commandLineArgs": "-v 1.0.0 \r\n-t 1.0.0 \r\n-d \"Release {0}\" \r\n-o DotNet-Ninja \r\n-n Create-Release \r\n-p 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"
+    }
+  }
+}
