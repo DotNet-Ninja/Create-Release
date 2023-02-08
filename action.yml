@@ -31,7 +31,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: dotnetninjax/create-release:1.0.0
   args:
   - '-v'
   - ${{ inputs.version }}
