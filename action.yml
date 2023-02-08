@@ -1,0 +1,47 @@
+name: 'Create-Release'
+description: 'Creates a release in your github repository'
+branding:
+  icon: activity
+  color: orange
+inputs:
+  version:
+    description:
+      'The semantic version of your release ex. 1.0.3'
+    required: true
+  tag:
+    description:
+      'The tag to use to create the release.'
+    required: true
+  description:
+    description:
+      'The template for the description/title of your release.  ex. Release {0} ({0}) is replaced with the version.'
+    required: false
+    default: "Release {0}"
+  owner:
+    description:
+      'The repository owner.'
+    required: true
+  name:
+    description:
+      'The repository name.'
+    required: true
+  accesstoken:
+    description:
+      'GitHub access token with authorization to create releases.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - '-v'
+  - ${{ inputs.version }}
+  - '-t'
+  - ${{ inputs.tag }}
+  - '-d'
+  - ${{ inputs.description }}
+  - '-o'
+  - ${{ inputs.owner }}
+  - '-n'
+  - ${{ inputs.name }}
+  - '-p'
+  - ${{ inputs.accesstoken }}
